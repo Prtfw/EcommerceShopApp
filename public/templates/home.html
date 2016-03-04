@@ -1,0 +1,31 @@
+<section class="secondary-nav" role="sub-nav">
+	<div class="content-wrapper">
+		<ul class="product-nav">
+			<li ng-class="{'focus': category==''}" ng-click="getCategory('')"><a>All</a></li>
+			<li ng-class="{'focus': category=='shoes'}" ng-click="getCategory('shoes')"><a>Shoes</a></li>
+			<li ng-class="{'focus': category=='shirts'}" ng-click="getCategory('shirts')"><a>Shirts</a></li>
+			<li ng-class="{'focus': category=='pants'}" ng-click="getCategory('pants')"
+			><a>Pants</a></li>
+			<li ng-class="{'focus': category=='outerwear'}" ng-click="category='outerwear'"
+			><a>Outerwear</a></li>
+			<li ng-class="{'focus': category=='accessories'}" ng-click="category='accessories'"
+			><a>Accessories</a></li>
+		</ul>
+	</div>
+</section>
+
+<div class="row">
+	<div class="col-md-4" ng-repeat="product in products">
+		<h2>{{ product.name }}</h2>
+		<p>{{ product.description }}</p>
+		<img ng-src="{{ product.thumb }}">
+		<p>
+			<a ng-href="#/product/{{product.id}}" class="btn btn-primary">Details</a>
+		</p>
+		
+	</div>
+</div>
+
+<br/>
+
+<label ng-show-"currProduct">Price for {{ currProduct.name}} is {{ currProduct.price }}</label>
