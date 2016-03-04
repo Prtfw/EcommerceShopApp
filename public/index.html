@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="shopapp">
 <head>
 	<title>ShopApp</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -8,14 +8,27 @@
 	<link rel="stylesheet" type="text/css" href="css/shopapp.css">
 	
 </head>
-<body class="container">
+<body class="container" ng-controller='shopappcontroller'>
+
+		
+
 
 	<h1>ShopApp!</h1>
+	<!-- <pre> {{ products | json | uppercase}}</pre> -->
+ 
+	<div ng-repeat = 'p in products'> 
+		<img ng-src="{{p.thumb}}">
+		<h3>{{p.name}}</h3>
+		<h4> {{p.vendor}}</h4>
+
+	</div>
 	<!-- javascript libraries -->
 	<script type="text/javascript" src="js/lib/angular.min.js"></script>
 	<script type="text/javascript" src="js/lib/angular-resource.js"></script>
 	<script type="text/javascript" src="js/lib/angular-route.js"></script>
 	<script type="text/javascript" src="js/lib/jquery.min.js"></script>
 	<script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/controller/app.js"></script> <!-- ink to controller -->
+
 </body>
 </html>
