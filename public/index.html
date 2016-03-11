@@ -8,34 +8,61 @@
 	<link rel="stylesheet" type="text/css" href="css/shopapp.css">
 	
 </head>
-<body class="container" ng-controller='shopappcontroller'>
+<body class="container" ng-controller="shopappcontroller">
 
-		
+	<div ng-include src="headerSrc"></div>
 
-
-	<!-- <h1>ShopApp!</h1>
-	<pre> {{ products | json | uppercase}}</pre>
- 
-	<div ng-repeat = 'p in products'> 
-		<img ng-src="{{p.thumb}}">
-		<h3>{{p.name}}</h3>
-		<h4> {{p.vendor}}</h4>
-
-	</div> -->
-	<div ng-include src="headerSrc"> </div>
-	<div ng-view> 
-
-	</div>
-
-
+	<div ng-view=""></div>
+	
 	<!-- javascript libraries -->
 	<script type="text/javascript" src="js/lib/angular.min.js"></script>
 	<script type="text/javascript" src="js/lib/angular-resource.js"></script>
 	<script type="text/javascript" src="js/lib/angular-route.js"></script>
 	<script type="text/javascript" src="js/lib/jquery.min.js"></script>
 	<script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/controller/app.js"></script> <!-- ink to controller -->
-	<script type="text/javascript" src="js/routers/router.js"></script> 
+
+
+	<script type="text/javascript" src="js/controller/app.js"></script>
+	<script type="text/javascript" src="js/service/services.js"></script>
+	<script type="text/javascript" src="js/routers/router.js"></script>
+
 
 </body>
 </html>
+
+
+
+<!-- <!DOCTYPE html>
+<html ng-app="shopapp">
+<head>
+	<title>ShopApp</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="css/shopapp.css">
+	
+</head>
+<body class="container" ng-controller='shopappcontroller'>
+
+		
+
+
+
+	<div ng-include src="headerSrc"> </div>
+
+	<div ng-view> 
+
+	</div>
+
+
+	javascript libraries
+	<script type="text/javascript" src="js/lib/angular.min.js"></script>
+	<script type="text/javascript" src="js/lib/angular-resource.js"></script>
+	<script type="text/javascript" src="js/lib/angular-route.js"></script>
+	<script type="text/javascript" src="js/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/controller/app.js"></script>
+// 	<script type="text/javascript" src="js/routers/router.js"></script> 
+
+// </body>
+// </html> -->

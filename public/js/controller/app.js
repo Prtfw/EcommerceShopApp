@@ -2,52 +2,55 @@
 
 
 
-var shopapp=angular.module('shopapp', ['ngRoute']); //[] for dependencies
+var shopapp = angular.module('shopapp', ['ngRoute', 'ngResource']); //[] for dependencies
 
-var shopappcontroller=function($scope){
+shopapp.controller('shopappcontroller', function($scope, pdtdtserv){
 
 
 	$scope.headerSrc =	'templates/header.html'
 
-	$scope.products=[
-{
-		"id": 0,
-		"name": "Portraiture Pendant",
-		"vendor": "Mimiko and Company",
-		"categories": ["accessories"],
-		"description": "A beautiful, elegant piece.",
-		"price": 85.00,
-		"onSale": false,
-		"thumb": "img/img-pendant.png",
-		"quantityInStock": 5
-	},
-	{
-		"id": 1,
-		"name": "Cufflinks",
-		"vendor": "Chromeo",
-		"categories": ["accessories"],
-		"description": "Rich heritage cufflinks, pure silver.",
-		"price": 200.00,
-		"onSale": false,
-		"thumb": "img/img-cufflinks.png",
-		"quantityInStock": 10
-	},
-	{
-		"id": 2,
-		"name": "Neilson Carginan",
-		"vendor": "Crux and Crucible",
-		"categories": ["outerwear"],
-		"description": "Rich heritage cufflinks, pure silver.",
-		"price": 200.00,
-		"onSale": false,
-		"thumb": "img/img-cardigan.png",
-		"quantityInStock": 10
-	}];
+	$scope.products = pdtdtserv.query();
 
-}
+	$scope.currProduct = null;
+
+	var allprod = $scope.products;
+
+	$scope.getProduct = function(id){
+		var products = $scope.products;
+		for (var i=0; i< products.length; i++){
+			if (products[i].id ==id){
+				$scope.currProduct = products[i];
+			}
+		}
+	};
 
 
+	$scope.getCategory = function(cat){
+		var p = allprod;
+		var prodcat = []
+		
+		for (var i=0; i< p.length; i++){
+			for (var j=0; j< p[i].categories.length; j++){
+				if (p[i].categories[j] == cat){
+					console.log(cat)
+					prodcat.push(p[i]);
 
-angular
-.module('shopapp', ['ngRoute'])
-.controller('shopappcontroller', shopappcontroller);
+
+				}
+				else if(cat == ''){ 
+					prodcat = allprod;
+				} 
+			}
+		}
+		
+
+			$scope.products = prodcat;
+	} 
+
+	 
+
+});
+
+shopapp.controller('productdetcontroller', function($scope, $routeParams){
+	$scope.getProduct($routeParams.id);
+});
