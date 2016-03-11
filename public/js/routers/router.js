@@ -10,6 +10,10 @@ shopapp.config(function($routeProvider){
 			templateUrl: 'templates/product.html',
 			controller: 'productdetcontroller'
 		})
+		.when('/cart',{
+			templateUrl: 'templates/cart.html',
+			controller: 'cartcontroller'
+		})
 		.otherwise({redirectTo: '/'
 		})
 
