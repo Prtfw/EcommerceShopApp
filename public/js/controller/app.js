@@ -1,7 +1,13 @@
 // our controllers go here
-angular.module('shopapp', []); //[] for dependencies
+
+
+
+var shopapp=angular.module('shopapp', ['ngRoute']); //[] for dependencies
 
 var shopappcontroller=function($scope){
+
+
+	$scope.headerSrc =	'templates/header.html'
 
 	$scope.products=[
 {
@@ -43,5 +49,5 @@ var shopappcontroller=function($scope){
 
 
 angular
-.module('shopapp', [])
+.module('shopapp', ['ngRoute'])
 .controller('shopappcontroller', shopappcontroller);
